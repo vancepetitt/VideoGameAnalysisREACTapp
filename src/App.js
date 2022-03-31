@@ -8,10 +8,11 @@ function App() {
 
   const[videoGames, setVideoGames] = useState('');
 
-  async function getAllGames(prop){
+  async function getAllVideoGames(prop){
     let response = await axios.get("https://localhost:7260/api/games");
     // 57067
-    setGames(response.data);
+    // 7260
+    setVideoGames(response.data);
     console.log(response.data);
   };
 
