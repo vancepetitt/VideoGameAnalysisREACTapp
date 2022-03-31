@@ -17,17 +17,17 @@ function App() {
   }, [])
 
   async function getAllVideoGames(prop){
-    let response = await axios.get("http://localhost:57067/api/games");
-    // 57067 - Vance's localhost port
-    // 7260 - Kat's localhost port
+    
+    // let response = await axios.get("http://localhost:57067/api/games");
+    let response = await axios.get("https://localhost:7260/api/games");
     setVideoGames(response.data);
     console.log(response.data);
   };
 
   async function getVideoGameById (prop) {
-    let game = await axios.get("http://localhost:57067/api/games/10");
-    // 57067 - Vance's localhost port
-    // 7260 - Kat's localhost port
+    let game = await axios.get("https://localhost:7260/api/games/10");
+    // let response = await axios.get("http://localhost:57067/api/games");
+    
     setSelectedVideoGame(game.data);
     console.log(game.data);
   };
