@@ -5,12 +5,13 @@ import SearchBarName from './components/SearchBar/SearchBarName/SearchBarName';
 import SearchBarGenre from './components/SearchBar/SearchBarGenre/SearchBarGenre';
 import SearchBarPlatform from './components/SearchBar/SearchBarPlatform/SearchBarPlatform';
 import SearchBarPublisher from './components/SearchBar/SearchBarPublisher/SearchBarPublisher';
-
+import DisplayVideoGames from './components/DisplayVideoGame/DisplayVideoGame';
 
 function App() {
 
   const[videoGames, setVideoGames] = useState('');
   const[selectedVideoGame, setSelectedVideoGame] = useState('');
+  const[matchingGames] = useState('');
 
   useEffect(() => {
     getAllVideoGames();
@@ -70,6 +71,7 @@ function App() {
       else return false;
     });
     console.log(matchingGames);
+    return matchingGames
   };
 
   return (
@@ -79,6 +81,7 @@ function App() {
       <SearchBarGenre filterByGenre={filterByGenre}/>
       <SearchBarPlatform filterByPlatform={filterByPlatform}/>
       <SearchBarPublisher filterByPublisher={filterByPublisher}/>
+      {/* <DisplayVideoGames matchingGames={matchingGames}/> */}
     </div>
   );
 };

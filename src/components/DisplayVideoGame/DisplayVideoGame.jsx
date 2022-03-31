@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react';
 
 const DisplayVideoGames = (props) => {
+
+
     return ( 
         <div>
             <table>
@@ -20,7 +22,7 @@ const DisplayVideoGames = (props) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {props.parentEntries.map((entry) => {
+                    {props.matchingGames.map((entry) => {
                         return(
                             <tr>
                                 <td>{entry.rank}</td>
