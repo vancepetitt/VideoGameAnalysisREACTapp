@@ -6,7 +6,7 @@ const SearchBarGenre = (props) => {
     function handleSubmit(e){
         e.preventDefault();
         console.log(searchGenre);
-        props.filterByName(searchGenre);
+        props.filterByGenre(searchGenre);
     }
 
     return (
