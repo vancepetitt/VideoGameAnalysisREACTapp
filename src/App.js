@@ -41,8 +41,8 @@ function App() {
       }
       else return false;
     });
+    setMatchingGames(matchingGames)
     console.log(matchingGames);
-    return matchingGames
   };
 
   const filterByGenre = (searchTerm) => {
@@ -52,8 +52,8 @@ function App() {
       }
       else return false;
     });
+    setMatchingGames(matchingGames)
     console.log(matchingGames);
-    return matchingGames
   };
 
   const filterByPlatform = (searchTerm) => {
@@ -63,8 +63,8 @@ function App() {
       }
       else return false;
     });
+    setMatchingGames(matchingGames)
     console.log(matchingGames);
-    return matchingGames
   };
 
   const filterByPublisher = (searchTerm) => {
@@ -81,9 +81,9 @@ function App() {
   return (
     <div className="App">
       <h1>Video Game Analysis</h1>
-      {/* <SearchBarName filterByName={filterByName}/>
+      <SearchBarName filterByName={filterByName}/>
       <SearchBarGenre filterByGenre={filterByGenre}/>
-      <SearchBarPlatform filterByPlatform={filterByPlatform}/> */}
+      <SearchBarPlatform filterByPlatform={filterByPlatform}/>
       <SearchBarPublisher filterByPublisher={filterByPublisher}/>
       <DisplayVideoGames matchingGames={matchingGames}/>
       <DisplayPlatformStats videoGames={videoGames} />
