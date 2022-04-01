@@ -12,7 +12,7 @@ function App() {
 
   const[videoGames, setVideoGames] = useState([]);
   const[selectedVideoGame, setSelectedVideoGame] = useState([]);
-  const[matchingGames] = useState([]);
+  const[matchingGames, setMatchingGames] = useState([]);
 
   useEffect(() => {
     getAllVideoGames();
@@ -20,19 +20,19 @@ function App() {
 
   async function getAllVideoGames(prop){
     
-    // let response = await axios.get("http://localhost:57067/api/games");
-    let response = await axios.get("https://localhost:7260/api/games");
+    let response = await axios.get("http://localhost:57067/api/games");
+    //let response = await axios.get("https://localhost:7260/api/games");
     setVideoGames(response.data);
-    // console.log(response.data);
+    console.log(response.data);
   };
 
-  async function getVideoGameById (prop) {
-    let game = await axios.get("https://localhost:7260/api/games/10");
-    // let response = await axios.get("http://localhost:57067/api/games");
+  // async function getVideoGameById (prop) {
+  //   //let game = await axios.get("https://localhost:7260/api/games/10");
+  //   let response = await axios.get("http://localhost:57067/api/games");
     
-    setSelectedVideoGame(game.data);
-    console.log(game.data);
-  };
+  //   setSelectedVideoGame(game.data);
+  //   console.log(game.data);
+  //};
 
   const filterByName = (searchTerm) => {
     let matchingGames = videoGames.filter((game) => {
@@ -42,6 +42,7 @@ function App() {
       else return false;
     });
     console.log(matchingGames);
+    return matchingGames
   };
 
   const filterByGenre = (searchTerm) => {
@@ -52,6 +53,7 @@ function App() {
       else return false;
     });
     console.log(matchingGames);
+    return matchingGames
   };
 
   const filterByPlatform = (searchTerm) => {
@@ -62,6 +64,7 @@ function App() {
       else return false;
     });
     console.log(matchingGames);
+    return matchingGames
   };
 
   const filterByPublisher = (searchTerm) => {
@@ -71,18 +74,18 @@ function App() {
       }
       else return false;
     });
+    setMatchingGames(matchingGames)
     console.log(matchingGames);
-    return matchingGames
   };
 
   return (
     <div className="App">
       <h1>Video Game Analysis</h1>
-      <SearchBarName filterByName={filterByName}/>
+      {/* <SearchBarName filterByName={filterByName}/>
       <SearchBarGenre filterByGenre={filterByGenre}/>
-      <SearchBarPlatform filterByPlatform={filterByPlatform}/>
+      <SearchBarPlatform filterByPlatform={filterByPlatform}/> */}
       <SearchBarPublisher filterByPublisher={filterByPublisher}/>
-      {/* <DisplayVideoGames matchingGames={matchingGames}/> */}
+      <DisplayVideoGames matchingGames={matchingGames}/>
       <DisplayPlatformStats videoGames={videoGames} />
     </div>
   );
