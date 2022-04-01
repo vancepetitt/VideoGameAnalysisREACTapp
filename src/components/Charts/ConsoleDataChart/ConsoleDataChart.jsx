@@ -38,7 +38,7 @@ const DisplayPlatformStats = ({videoGames}) => {
 
     function generateDataForChart(){
         const data = [
-            ["Element", "Density", { role: "style" }],
+            ["platform", platformArrays, { role: "style" }],
             ...platformArrays
           ];
 
@@ -48,7 +48,7 @@ const DisplayPlatformStats = ({videoGames}) => {
     return (
         <div>
             <h1>Platform By Global Sales in Millions</h1>
-            <Chart chartType="ColumnChart" width="100%" height="400px" data={generateDataForChart} />
+            <Chart chartType="ColumnChart" width="100%" height="400px" data={generateDataForChart()} />
         </div>
     );
 }
