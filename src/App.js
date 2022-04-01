@@ -6,12 +6,13 @@ import SearchBarGenre from './components/SearchBar/SearchBarGenre/SearchBarGenre
 import SearchBarPlatform from './components/SearchBar/SearchBarPlatform/SearchBarPlatform';
 import SearchBarPublisher from './components/SearchBar/SearchBarPublisher/SearchBarPublisher';
 import DisplayVideoGames from './components/DisplayVideoGame/DisplayVideoGame';
+import DisplayPlatformStats from './components/Charts/ConsoleDataChart/ConsoleDataChart';
 
 function App() {
 
-  const[videoGames, setVideoGames] = useState('');
-  const[selectedVideoGame, setSelectedVideoGame] = useState('');
-  const[matchingGames] = useState('');
+  const[videoGames, setVideoGames] = useState([]);
+  const[selectedVideoGame, setSelectedVideoGame] = useState([]);
+  const[matchingGames] = useState([]);
 
   useEffect(() => {
     getAllVideoGames();
@@ -22,7 +23,7 @@ function App() {
     // let response = await axios.get("http://localhost:57067/api/games");
     let response = await axios.get("https://localhost:7260/api/games");
     setVideoGames(response.data);
-    console.log(response.data);
+    // console.log(response.data);
   };
 
   async function getVideoGameById (prop) {
@@ -82,6 +83,7 @@ function App() {
       <SearchBarPlatform filterByPlatform={filterByPlatform}/>
       <SearchBarPublisher filterByPublisher={filterByPublisher}/>
       {/* <DisplayVideoGames matchingGames={matchingGames}/> */}
+      <DisplayPlatformStats videoGames={videoGames} />
     </div>
   );
 };
