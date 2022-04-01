@@ -7,6 +7,8 @@ import SearchBarPlatform from './components/SearchBar/SearchBarPlatform/SearchBa
 import SearchBarPublisher from './components/SearchBar/SearchBarPublisher/SearchBarPublisher';
 import DisplayVideoGames from './components/DisplayVideoGame/DisplayVideoGame';
 import DisplayPlatformStats from './components/Charts/ConsoleDataChart/ConsoleDataChart';
+import DisplayHistoricalStats from './components/Charts/DataAnalysisChart/DataAnalysisChart';
+
 
 function App() {
 
@@ -19,11 +21,14 @@ function App() {
   }, [])
 
   async function getAllVideoGames(prop){
-    
+    try{
     // let response = await axios.get("http://localhost:57067/api/games");
     let response = await axios.get("https://localhost:7260/api/games");
     setVideoGames(response.data);
-    console.log(response.data);
+    }catch(ex){
+      console.log(`Error in getAllVideoGames EXCEPTION: ${ex}`)
+    }
+    // console.log(response.data);
   };
 
   async function getVideoGameById (prop) {
@@ -86,6 +91,7 @@ function App() {
       <SearchBarPublisher filterByPublisher={filterByPublisher}/>
       <DisplayVideoGames matchingGames={matchingGames}/>
       <DisplayPlatformStats videoGames={videoGames} />
+      <DisplayHistoricalStats videoGames={videoGames} />
     </div>
   );
 };
