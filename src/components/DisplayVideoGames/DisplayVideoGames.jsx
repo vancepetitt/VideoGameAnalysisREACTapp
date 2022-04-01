@@ -14,11 +14,11 @@ const DisplayVideoGames = ({matchingGames}) => {
                         <th>Year</th>
                         <th>Genre</th>
                         <th>Publisher</th>
-                        <th>North America Sales</th>
-                        <th>Europe Sales</th>
-                        <th>Japan Sales</th>
-                        <th>Other Sales</th>
-                        <th>Global Sales</th>
+                        <th>North America Sales (mil)</th>
+                        <th>Europe Sales (mil)</th>
+                        <th>Japan Sales (mil)</th>
+                        <th>Other Sales (mil)</th>
+                        <th>Global Sales (mil)</th>
                     </tr>
                 </thead>
                 <tbody>

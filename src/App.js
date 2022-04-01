@@ -26,13 +26,12 @@ function App() {
     console.log(response.data);
   };
 
-  // async function getVideoGameById (prop) {
-  //   //let game = await axios.get("https://localhost:7260/api/games/10");
-  //   let response = await axios.get("http://localhost:57067/api/games");
-    
-  //   setSelectedVideoGame(game.data);
-  //   console.log(game.data);
-  //};
+  async function getVideoGameById (prop) {
+    //let game = await axios.get("https://localhost:7260/api/games/10");
+    let game = await axios.get("http://localhost:57067/api/games/10");
+    setSelectedVideoGame(game.data);
+    console.log(game.data);
+  };
 
   const filterByName = (searchTerm) => {
     let matchingGames = videoGames.filter((game) => {
