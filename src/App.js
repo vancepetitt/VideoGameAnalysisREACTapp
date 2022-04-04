@@ -5,9 +5,10 @@ import SearchBarName from './components/SearchBar/SearchBarName/SearchBarName';
 import SearchBarGenre from './components/SearchBar/SearchBarGenre/SearchBarGenre';
 import SearchBarPlatform from './components/SearchBar/SearchBarPlatform/SearchBarPlatform';
 import SearchBarPublisher from './components/SearchBar/SearchBarPublisher/SearchBarPublisher';
-import DisplayVideoGames from './components/DisplayVideoGame/DisplayVideoGame';
+import DisplayVideoGames from './components/DisplayVideoGames/DisplayVideoGames';
 import DisplayPlatformStats from './components/Charts/ConsoleDataChart/ConsoleDataChart';
 import DisplayHistoricalStats from './components/Charts/DataAnalysisChart/DataAnalysisChart';
+import GameDataChart from './components/Charts/GameDataChart/GameDataChart';
 
 
 function App() {
@@ -89,6 +90,7 @@ function App() {
       <SearchBarGenre filterByGenre={filterByGenre}/>
       <SearchBarPlatform filterByPlatform={filterByPlatform}/>
       <SearchBarPublisher filterByPublisher={filterByPublisher}/>
+      {/* <GameDataChart matchingGames={matchingGames}/> */}
       <DisplayVideoGames matchingGames={matchingGames}/>
       <DisplayPlatformStats videoGames={videoGames} />
       <DisplayHistoricalStats videoGames={videoGames} />

@@ -1,7 +1,37 @@
 import React from "react";
 import { Chart } from "react-google-charts";
 
-const GameDataChart = ({videoGames}) => {
+const GameDataChart = ({matchingGames}) => {
+
+    let platforms = matchingGames.map(game => {
+        return game.platform
+    });
+
+    console.log('search platforms', platforms);
+
+    let distinctPlatforms = [...new Set(platforms)]
+    console.log(distinctPlatforms);
+
+    let totalSearchSales = 0 
+    
+    matchingGames.forEach((game) => {
+        totalSearchSales += parseInt(game.globalSales)
+    });
+
+    let gameSalesArrays = distinctPlatforms.map(platform => {
+        let gamesForPlatform = matchingGames.filter(game => game.platform == platform)
+        let platformSales = 0
+
+        gamesForPlatform.forEach((game) => {
+            platformSales += parseInt(game.globalSales)
+        });
+
+        let platformPercentage = platformSales / totalSearchSales
+        console.log('gamesalesarrays', gameSalesArrays);
+        return [platform, platformPercentage]
+    });
+
+    
     
     // async function getVideoGameById (prop) {
         

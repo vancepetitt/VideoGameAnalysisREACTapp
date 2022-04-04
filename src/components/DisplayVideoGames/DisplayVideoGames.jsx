@@ -3,6 +3,14 @@ import React, {useState, useEffect} from 'react';
 
 const DisplayVideoGames = ({matchingGames}) => {
 
+
+    function generateDataForGamePieChart(game) {
+
+        
+        console.log(game.name);
+    }
+
+
     return ( 
         <div>
             <table>
@@ -26,7 +34,7 @@ const DisplayVideoGames = ({matchingGames}) => {
                         return(
                             <tr key={entry.id}>
                                 <td>{entry.rank}</td>
-                                <td>{entry.name}</td>
+                                <td><button onClick={() => generateDataForGamePieChart(entry)}>{entry.name}</button></td>
                                 <td>{entry.platform}</td>
                                 <td>{entry.year}</td>
                                 <td>{entry.genre}</td>
