@@ -1,83 +1,45 @@
-// import React from "react";
-// import { Chart } from "react-google-charts";
+import React from "react";
+import { Chart } from "react-google-charts";
 
-// const GameDataChart = ({clickedGames}) => {
+const GameDataChart = ({clickedGames}) => {
 
-//     let platforms = clickedGames.map(game => {
-//         return game.platform
-//     });
+    console.log('CLICKED GAMES', clickedGames )
 
-//     console.log('search platforms', platforms);
+    let gameSalesArrays = clickedGames.map(game => {
+        return [game.platform, game.globalSales];
+    });
 
-//     let distinctPlatforms = [...new Set(platforms)]
-//     console.log(distinctPlatforms);
+    // console.log('search platforms', platforms);
 
-//     let totalSearchSales = 0 
+    // let distinctPlatforms = [...new Set(platforms)]
+    // console.log(distinctPlatforms);
+
+    // let gameSalesArrays = distinctPlatforms.map(platform => {
+    //     let gamesForPlatform = clickedGames.filter(game => game.platform == platform)
+    //     let platformSales = 0
+
+    //     gamesForPlatform.forEach((game) => {
+    //         platformSales += parseInt(game.globalSales)
+    //     });
+    //     return [platform, platformSales]
+    // });
+
+    //console.log('gamesalesarrays', gameSalesArrays);
     
-//     clickedGames.forEach((game) => {
-//         totalSearchSales += parseInt(game.globalSales)
-//     });
-
-//     let gameSalesArrays = distinctPlatforms.map(platform => {
-//         let gamesForPlatform = clickedGames.filter(game => game.platform == platform)
-//         let platformSales = 0
-
-//         gamesForPlatform.forEach((game) => {
-//             platformSales += parseInt(game.globalSales)
-//         });
-
-//         let platformPercentage = platformSales / totalSearchSales
-//         console.log('gamesalesarrays', gameSalesArrays);
-//         return [platform, platformPercentage]
-//     });
-
+    function generateDataForChart(){
+        const data = [
+            ["Platform", 'Sales'], 
+           ...gameSalesArrays
+        ];
+            console.log(data);
+            return data;
+    };         
     
-    
-//     // async function getVideoGameById (prop) {
-        
-//     // //     //add id as variable in the url
-//     // //     //let game = await axios.get("https://localhost:7260/api/games/10");
-//     // //     let game = await axios.get("http://localhost:57067/api/games/10");
-//     // //     setSelectedVideoGame(game.data);
-//     // //     console.log(game.data);
-//     // //   };
-    
-//     // let filteredGames = videoGames.filter(game => game.name == )
-    
-    
-
-
-
-
-
-      
-//     function generateDataForChart(){
-//         const data = [
-//             ["Task", "Hours per Day"],
-//             ["Work", 11],
-//             ["Eat", 2],
-//             ["Commute", 2],
-//             ["Watch TV", 2],
-//             ["Sleep", 7],
-//         // ["platform", platformArrays, { role: "style" }],
-//         // ...platformArrays
-//         ];
-
-//         return data;
-//         }
-    
-    
-    
-    
-    
-    
-    
-//     return ( 
-//         <div>
-//             <h1>Platform By Global Sales in Millions</h1>
-//             <Chart chartType="PieChart" width="100%" height="400px" data={generateDataForChart()} />
-//         </div>
-//     ); 
-// }
-
-// export default GameDataChart;
+    return ( 
+        <div>
+            <h1>Platform By Global Sales in Millions</h1>
+            <Chart chartType="PieChart" width="100%" height="400px" data={generateDataForChart()} />
+        </div>
+    );
+};
+export default GameDataChart;

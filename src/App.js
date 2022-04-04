@@ -13,9 +13,10 @@ import GameDataChart from './components/Charts/GameDataChart/GameDataChart';
 
 function App() {
 
-  const[videoGames, setVideoGames] = useState([]);
-  const[selectedVideoGame, setSelectedVideoGame] = useState([]);
-  const[matchingGames, setMatchingGames] = useState([]);
+  const [videoGames, setVideoGames] = useState([]);
+  const [selectedVideoGame, setSelectedVideoGame] = useState([]);
+  const [matchingGames, setMatchingGames] = useState([]);
+  const [clickedGames, setClickedGames] = useState([]);
 
   useEffect(() => {
     getAllVideoGames();
@@ -90,8 +91,8 @@ function App() {
       <SearchBarGenre filterByGenre={filterByGenre}/>
       <SearchBarPlatform filterByPlatform={filterByPlatform}/>
       <SearchBarPublisher filterByPublisher={filterByPublisher}/>
-      {/* <GameDataChart clickedGames={clickedGames}/> */}
-      <DisplayVideoGames matchingGames={matchingGames}/>
+      <GameDataChart clickedGames={clickedGames}/>
+      <DisplayVideoGames setClickedGames={setClickedGames} matchingGames={matchingGames}/>
       <DisplayPlatformStats videoGames={videoGames} />
       <DisplayHistoricalStats videoGames={videoGames} />
     </div>
