@@ -43,6 +43,7 @@ const DisplayPlatformStats = ({videoGames}) => {
           ];
 
           return data;
+          console.log("data", data)
     }
 
     return (
