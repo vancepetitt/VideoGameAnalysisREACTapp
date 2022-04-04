@@ -37,7 +37,7 @@ const GameDataChart = ({clickedGames}) => {
     
     return ( 
         <div>
-            <h1>Platform By Global Sales in Millions</h1>
+            <h1>Game Sales By Platform (in Millions)</h1>
             <Chart chartType="PieChart" width="100%" height="400px" data={generateDataForChart()} />
         </div>
     );

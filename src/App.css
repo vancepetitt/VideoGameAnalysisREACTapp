@@ -28,6 +28,26 @@
   color: #61dafb;
 }
 
+body {
+  background-color: lightblue;
+  font-family: Calibri;
+}
+
+form{
+  background-color: #CBFBC5;
+  text-align: center;
+  font-size: 24px;
+  border-style: solid;
+  border-color: green;
+  padding-top: 1%;
+  padding-left: 1%;
+  padding-bottom: 1%;
+  PADDING-RIGHT: 1%;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -36,3 +56,5 @@
     transform: rotate(360deg);
   }
 }
+
+

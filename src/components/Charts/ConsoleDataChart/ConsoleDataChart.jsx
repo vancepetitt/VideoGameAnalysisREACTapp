@@ -31,7 +31,7 @@ const DisplayPlatformStats = ({videoGames}) => {
         allGamesForPlatform.forEach((game) => {
             globalPlatformSales += parseInt(game.globalSales)
         });
-        return [platform, globalPlatformSales, "silver"]
+        return [platform, globalPlatformSales, "#7731fb"]
     });
 
     console.log("platform arrays", platformArrays);

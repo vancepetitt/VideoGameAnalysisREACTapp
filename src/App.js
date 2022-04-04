@@ -24,8 +24,8 @@ function App() {
 
   async function getAllVideoGames(prop){
     try{
-    let response = await axios.get("http://localhost:57067/api/games");
-    //let response = await axios.get("https://localhost:7260/api/games");
+    // let response = await axios.get("http://localhost:57067/api/games");
+    let response = await axios.get("https://localhost:7260/api/games");
     setVideoGames(response.data);
     }catch(ex){
       console.log(`Error in getAllVideoGames EXCEPTION: ${ex}`)
@@ -34,8 +34,8 @@ function App() {
   };
 
   async function getVideoGameById (prop) {
-    //let game = await axios.get("https://localhost:7260/api/games/10");
-    let game = await axios.get("http://localhost:57067/api/games/10");
+    let game = await axios.get("https://localhost:7260/api/games/10");
+    // let game = await axios.get("http://localhost:57067/api/games/10");
     setSelectedVideoGame(game.data);
     console.log(game.data);
   };
@@ -87,6 +87,7 @@ function App() {
   return (
     <div className="App">
       <h1>Video Game Analysis</h1>
+      <h2>By Kat and Vance</h2>
       <SearchBarName filterByName={filterByName}/>
       <SearchBarGenre filterByGenre={filterByGenre}/>
       <SearchBarPlatform filterByPlatform={filterByPlatform}/>
