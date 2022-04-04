@@ -10,17 +10,17 @@ const DisplayPlatformStats = ({videoGames}) => {
 
     //filter newer than 2013:
     let filteredGames = videoGames.filter(game => game.year >= 2013);
-    console.log('Filtered Games', filteredGames);
+    //console.log('Filtered Games', filteredGames);
 
     //returns all platforms (from games newer than 2013)
     let platforms = filteredGames.map(game => {
         return game.platform
     });
-    console.log('Platforms', platforms)
+    //console.log('Platforms', platforms)
 
     //returns only the unique platforms
     let distinctPlatforms = [...new Set(platforms)]
-    console.log('Distinct Platforms', distinctPlatforms);
+    //console.log('Distinct Platforms', distinctPlatforms);
 
     //gives the array that will be used to geneerate the chart
     let platformArrays = distinctPlatforms.map(platform => {

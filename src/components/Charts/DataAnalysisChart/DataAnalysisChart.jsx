@@ -1,9 +1,6 @@
 import {useState, useEffect} from 'react';
 import {Chart} from 'react-google-charts';
 
-
-
-
 const DisplayHistoricalStats = ({videoGames}) => {
 
     function generateDataForChart(){
@@ -24,21 +21,42 @@ const DisplayHistoricalStats = ({videoGames}) => {
     let distinctPlatforms = [...new Set(platforms)]
     console.log('Distinct Platforms', distinctPlatforms);
 
-    //gives the array that will be used to geneerate the chart
-    let platformArrays = distinctPlatforms.map(platform => {
-        
-        let allGamesForPlatform = filteredGames.filter(game => game.platform == platform)
-        let globalPlatformSales = 0
-        // let year = 2000
-        let salesPerYear = filteredGames.filter(game => game.year == year)
+    //returns all years (after 2000)
+    let years = filteredGames.map(game => {
+        return game.year
+    });
+    console.log('Years', years)
 
-        allGamesForPlatform.forEach((game) => {
-            globalPlatformSales += parseInt(game.globalSales)
+    //return all unique years
+    let distinctYears = [...new Set(years)]
+    console.log('Distinct Years', distinctYears);
+
+    //gives the array that will be used to geneerate the chart
+    let platformArrays = distinctYears.map(years => {
+        
+        let globalPlatformSalesPerYear = 0
+
+        let platformsPerYear = distinctPlatforms.map(platform => {
+            let gamesForPlatform = filteredGames.filter(game => game.platform == platform)
+            console.log(gamesForPlatform)
+
+            let globalPlatformSales = 0
+
+            gamesForPlatform.forEach((game) => {
+                globalPlatformSales += parseInt(game.globalSales)
+            });
+            return [platform, globalPlatformSales]
         });
-        allPlatformsForYear.forEach((game) => {
-            salesPerYear = parseInt(game.year)
-        });
-        return [year, platform, globalPlatformSales]
+        console.log(platformsPerYear)
+        // let gamesPerYear = filteredGames.filter(game => game.year === years)
+        // let gamesForPlatform = filteredGames.filter(game => game.platform === platforms)
+
+        // let globalPlatformSalesPerYear = 0
+
+        // gamesForPlatform.forEach((game) => {
+        //     globalPlatformSalesPerYear += parseInt(game.globalSales)
+        // });
+        return [years, platformsPerYear]
     });
 
     console.log("platform arrays", platformArrays);
@@ -46,7 +64,7 @@ const DisplayHistoricalStats = ({videoGames}) => {
         const data = [
             [
                 "year", 
-                "platform arrays"
+                "platformsPerYear"
             ],
               ...platformArrays
             ];
