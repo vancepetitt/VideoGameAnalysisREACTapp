@@ -90,7 +90,7 @@ function App() {
       <SearchBarGenre filterByGenre={filterByGenre}/>
       <SearchBarPlatform filterByPlatform={filterByPlatform}/>
       <SearchBarPublisher filterByPublisher={filterByPublisher}/>
-      {/* <GameDataChart matchingGames={matchingGames}/> */}
+      {/* <GameDataChart clickedGames={clickedGames}/> */}
       <DisplayVideoGames matchingGames={matchingGames}/>
       <DisplayPlatformStats videoGames={videoGames} />
       <DisplayHistoricalStats videoGames={videoGames} />
